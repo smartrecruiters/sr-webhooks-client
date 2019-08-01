@@ -1,0 +1,37 @@
+<ul class="list-group">
+    <li *ngFor="let subscription of subscriptions" class="list-group-item">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1" *ngFor="let event of subscription.events">{{ event.name }}</h5>
+        </div>
+        <div class="m-3">
+            <pre class="card-text mb-1">{{ subscription | json}}</pre>
+        </div>
+        <div class="btn-toolbar justify-content-between">
+            <button type="button" class="btn btn-outline-warning btn-sm btn-block" [disabled]="subscription.status === 'active'" (click)="activateSubscription(subscription.id)">Activate</button>
+            <button type="button" class="btn btn-outline-danger btn-sm btn-block" (click)="deleteSubscription(subscription.id)">Delete</button>
+        </div>
+    </li>
+</ul>
+<div class="pt-2 pl-2 pr-2">
+    <button type="button" class="btn btn-block subs-button" data-toggle="modal" data-target="#createSubscription">Create</button>
+</div>
+
+<div class="modal fade" id="createSubscription" tabindex="-1" role="dialog" aria-labelledby="createSubscriptionLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createSubscriptionLabel">Create new subscription</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                    <pre class="card-text" #subscriptionEvents contenteditable="true">{{ eventsPlaceholder | json }}</pre>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn sr-button" (click)="createSubscription()" data-dismiss="modal">Create</button>
+            </div>
+        </div>
+    </div>
+</div>
