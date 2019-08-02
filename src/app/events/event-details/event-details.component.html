@@ -1,0 +1,9 @@
+<div class="card" *ngIf="event">
+    <div class="card-body">
+        <pre class="card-text">{{getEventDetails(event) | json}}</pre>
+    </div>
+    <div class="card-body" *ngIf="event.entity">
+        <pre class="card-text">{{event.entity | json}}</pre>
+    </div>
+</div>
+
