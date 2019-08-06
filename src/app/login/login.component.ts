@@ -9,6 +9,8 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+    authenticated: boolean = true;
+
     constructor(private http: HttpClient, private router: Router) {
     }
 
@@ -16,6 +18,7 @@ export class LoginComponent implements OnInit {
         this.http.get('/api/users/me').subscribe(result => {
             this.router.navigate([`/${(<any>result).id}`])
         }, err => {
+            this.authenticated = false;
         })
     }
 
