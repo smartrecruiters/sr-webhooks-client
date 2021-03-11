@@ -105,6 +105,6 @@ app.get('/auth/callback',
 ```
 
 During OAuth flow webhooks client requests for `webhooks_manage` scope which allows to read, activate and delete
-webhooks subscriptions as well as other scopes, such as `jobs_read` and `candidates_read` that enable the application 
+webhooks subscriptions as well as other scopes, such as `jobs_read`, `approvals_read` and `candidates_read` that enable the application 
 to retrieve current state of the entities from SmartRecruiters API. Read more about OAuth scopes 
 [here](https://dev.smartrecruiters.com/customer-api/authentication/access-scopes).
