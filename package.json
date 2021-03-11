@@ -1,6 +1,9 @@
 {
   "name": "sr-webhooks-client",
   "version": "0.0.1",
+  "engines": {
+    "node": "12.x"
+  },
   "scripts": {
     "ng": "ng",
     "start": "node $NODE_DEBUG_OPTION server.js",
