@@ -8,7 +8,10 @@ const {oauthAuthentication, logout} = require('./lib/auth/oauth')
 const app = express()
 app.use(bodyParser.json())
 
-const db = pgp(process.env.DATABASE_URL)
+const db = pgp({
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+})
 const users = require('./lib/dao/users')(db)
 
 oauthAuthentication(app, users)
