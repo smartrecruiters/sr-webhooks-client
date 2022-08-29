@@ -2,7 +2,7 @@
 
 The webhooks client is a demo web application that handle incoming webhooks notifications and allows to manage 
 subscriptions. Read more about SmartRecruiters webhooks functionality 
-[here](https://dev.smartrecruiters.com/customer-api/webhooks).
+[here](https://developers.smartrecruiters.com/docs/webhooks).
 
 The application is up and running at <https://sr-webhooks-client.herokuapp.com>. You are welcomed to log in using your 
 SmartRecruiters administrator account and play around with the functionality to get a sense of how SmartRecruiters 
@@ -22,7 +22,7 @@ entities to the user and enables them to see and change their webhooks subscript
 ### Subscription management
 
 The app allows to read, activate and delete webhooks subscription via 
-[webhooks subscriptions API](https://dev.smartrecruiters.com/customer-api/live-docs/webhooks-subscriptions-api).
+[webhooks subscriptions API](https://developers.smartrecruiters.com/reference/webhooks-subscriptions-api).
 
 
 ### Subscription activation
@@ -58,8 +58,8 @@ router.post('/:id', async (req, res) => {
 ```
 
 Every notification contains information about type of event and its version in the headers. The id of changed resource 
-is provided in the body. See full documentation of notification 
-[here](https://dev.smartrecruiters.com/customer-api/live-docs/webhooks-subscriptions-api/#//onJobCreatedCallback).
+is provided in the body. See full documentation of notification entities in callbacks section 
+[here](https://developers.smartrecruiters.com/reference/subscriptionscreate-1).
 
 ```
 const internalEvent = req => {
@@ -107,4 +107,4 @@ app.get('/auth/callback',
 During OAuth flow webhooks client requests for `webhooks_manage` scope which allows to read, activate and delete
 webhooks subscriptions as well as other scopes, such as `jobs_read`, `approvals_read` and `candidates_read` that enable the application 
 to retrieve current state of the entities from SmartRecruiters API. Read more about OAuth scopes 
-[here](https://dev.smartrecruiters.com/customer-api/authentication/access-scopes).
+[here](https://developers.smartrecruiters.com/docs/authentication-access-scopes).
